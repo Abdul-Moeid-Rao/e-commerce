@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Product Details</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <!-- <link rel="stylesheet" href="assets/css/responsive.css"> -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<style>
+  /* Product Details Page Styles */
+  .breadcrumb {
+    background-color: #f8f9fa;
+    padding: 15px 0;
+    border-bottom: 1px solid #e9ecef;
+    font-size: 14px;
+  }
+  
+  .breadcrumb .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: flex-start;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  
+  .breadcrumb a, .breadcrumb span, .breadcrumb i {
+    color: #495057;
+  }
+  
+  .product-detail-heading {
+    text-align: center;
+    margin: 30px 0;
+  }
+  
+  .product-detail-heading h1 {
+    font-size: 28px;
+    color: #333;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 10px;
+  }
+  
+  .product-detail-heading h1::after {
+    content: '';
+    position: absolute;
+    width: 60%;
+    height: 3px;
+    background: linear-gradient(90deg, #ff7b00, #d70000);
+    bottom: 0;
+    left: 20%;
+    border-radius: 3px;
+  }
+  
+  .product-detail-card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    margin-bottom: 40px;
+    padding: 20px;
+  }
+  
+  .product-detail-wrapper {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+  
+  .product-image {
+    flex: 1;
+    min-width: 300px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .product-image img {
+    max-width: 100%;
+    height: auto;
+    max-height: 400px;
+    object-fit: contain;
+  }
+  
+  .product-info {
+    flex: 1;
+    min-width: 300px;
+  }
+  
+  .product-info h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 15px;
+  }
+  
+  .product-info p {
+    margin-bottom: 15px;
+    font-size: 16px;
+    color: #555;
+    line-height: 1.6;
+  }
+  
+  .product-info strong {
+    color: #333;
+    font-weight: 600;
+  }
+  
+  .current-price {
+    font-size: 24px;
+    color: #d70000;
+    font-weight: 700;
+  }
+  
+  .old-price {
+    font-size: 18px;
+    color: #999;
+    text-decoration: line-through;
+    margin-left: 10px;
+  }
+  
+  .product-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 25px;
+    flex-wrap: wrap;
+  }
+  
+  .btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 4px;
+    font-weight: 500;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .add-to-cart {
+    background-color: #d70000;
+    color: white;
+  }
+  
+  .add-to-cart:hover {
+    background-color: #b00000;
+  }
+  
+  .add-to-wishlist {
+    background-color: #f8f9fa;
+    color: #d70000;
+    border: 1px solid #d70000;
+  }
+  
+  .add-to-wishlist:hover {
+    background-color: #d70000;
+    color: white;
+  }
+  
+  .fa-star {
+    color: #ffc107;
+  }
+  
+  /* Toast Notification */
+  .toast {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #333;
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: 4px;
+    font-size: 14px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1000;
+  }
+  
+  .toast.show {
+    opacity: 1;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .product-detail-wrapper {
+      flex-direction: column;
+      gap: 20px;
+    }
+    
+    .product-image,
+    .product-info {
+      min-width: 100%;
+    }
+    
+    .product-buttons {
+      flex-direction: column;
+    }
+    
+    .btn {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .product-detail-heading h1 {
+      font-size: 24px;
+    }
+    
+    .product-info h2 {
+      font-size: 20px;
+    }
+    
+    .current-price {
+      font-size: 20px;
+    }
+    
+    .old-price {
+      font-size: 16px;
+    }
+  }
+</style>
+<body>
+
+  <!-- Main Navigation Bar -->
+  <nav class="main-nav">
+    <div class="nav-container">
+      <!-- Logo -->
+      <div class="logo">
+        <a href="/">
+          <span class="logo-text">Electro</span><span class="logo-dot">.</span>
+        </a>
+      </div>
+
+      <div class="user-actions">
+        <a href="wishlist.html" class="action-item wishlist">
+          <i class="fas fa-heart icon"></i>
+          <span class="action-text">Wishlist</span>
+          <span id="wishlist-count" class="count-badge">0</span>
+        </a>
+        <a href="cart.html" class="action-item cart">
+          <i class="fas fa-shopping-cart icon"></i>
+          <span class="action-text">Cart</span>
+          <span id="cart-count" class="count-badge">0</span>
+        </a>
+
+      </div>
+
+    </div>
+  </nav>
+
+      <!-- Bottom Navigation Bar -->
+    <nav class="bottom-nav">
+        <ul class="nav-menu">
+            <li class="nav-item"><a href="index.html">Home</a></li>
+            <li class="nav-item"><a href="products.html">Products</a></li>
+            <li class="nav-item"><a href="comingsoon.html">New Arivals</a></li>
+            <li class="nav-item"><a href="comingsoon.html">Hot Deals</a></li>
+            <li class="nav-item"><a href="comingsoon.html">About</a></li>
+            <li class="nav-item"><a href="comingsoon.html">Help</a></li>
+        </ul>
+    </nav>
+
+  <!-- Breadcrumb Navigation -->
+  <div class="breadcrumb">
+    <div class="container">
+      <a href="index.html">Home</a>
+      <i class="fas fa-chevron-right"></i>
+      <span>Product Details</span>
+    </div>
+  </div>
+
+  <!-- Product details container -->
+  <div class="container">
+    <!-- Row 1: Heading
+    <div class="product-detail-heading">
+      <h1>Product Details</h1>
+    </div> -->
+
+    <!-- Row 2: Product Detail Content -->
+    <div id="product-detail" class="product-detail-card">
+      <!-- Dynamic content will be injected here via JS -->
+    </div>
+  </div>
+
+
+  <div id="toast" class="toast">Message</div>
+
+  <!-- Footer Section -->
+  <footer class="footer">
+    <div class="footer-container">
+      <!-- Top Footer Section -->
+      <div class="footer-top">
+        <div class="footer-column">
+          <h3 class="footer-title">Electro<span>.</span></h3>
+          <p class="footer-about">Your one-stop shop for all electronics needs. We provide high-quality
+            products at competitive prices with excellent customer service.</p>
+          <div class="footer-social">
+            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-column">
+          <h4 class="footer-heading">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Products</a></li>
+            <li><a href="#">New Arrivals</a></li>
+            <li><a href="#">Hot Deals</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h4 class="footer-heading">Customer Service</h4>
+          <ul class="footer-links">
+            <li><a href="#">My Account</a></li>
+            <li><a href="#">Customer Services</a></li>
+            <li><a href="#">Returns & Exchanges</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">FAQs</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h4 class="footer-heading">Contact Info</h4>
+          <ul class="footer-contact">
+            <li>
+              <i class="fas fa-map-marker-alt"></i>
+              <span>UET, Taxila, Rawalpindi, Pakistan</span>
+            </li>
+            <li>
+              <i class="fas fa-phone-alt"></i>
+              <span>+92-337-0422383</span>
+            </li>
+            <li>
+              <i class="fas fa-envelope"></i>
+              <span>email@electro.com</span>
+            </li>
+            <li>
+              <i class="fas fa-clock"></i>
+              <span>Mon - Fri: 9:00 - 18:00</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h4 class="footer-heading">Newsletter</h4>
+          <p class="footer-newsletter">Subscribe to our newsletter for the latest updates and offers.</p>
+          <form class="newsletter-form">
+            <input type="email" placeholder="Your email address" required>
+            <button type="submit">Subscribe</button>
+          </form>
+          <div class="payment-methods">
+            <img src="https://1000logos.net/wp-content/uploads/2017/06/VISA-Logo-1992.png" alt="Visa">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/MasterCard_Logo.svg/1280px-MasterCard_Logo.svg.png"
+              alt="Mastercard">
+            <img
+              src="https://www.paypalobjects.com/webstatic/mktg/logo-center/PP_Acceptance_Marks_for_LogoCenter_266x142.png"
+              alt="PayPal">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Stripe_Logo%2C_revised_2016.svg/2560px-Stripe_Logo%2C_revised_2016.svg.png"
+              alt="Stripe">
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Footer Section -->
+      <div class="footer-bottom">
+        <div class="copyright">
+          &copy; 2023 Electro. All Rights Reserved.
+        </div>
+        <div class="footer-links-bottom">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms & Conditions</a>
+          <a href="#">Sitemap</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Add products.js BEFORE your own script -->
+  <script src="assets/js/products.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const urlParams = new URLSearchParams(window.location.search);
+      const productId = parseInt(urlParams.get('id'));
+      const product = window.products?.find(p => p.id === productId);
+      const detailContainer = document.getElementById('product-detail');
+
+      function showToast(message) {
+        const toast = document.getElementById('toast');
+        toast.innerText = message;
+        toast.className = "toast show";
+        setTimeout(() => {
+          toast.className = toast.className.replace("show", "");
+        }, 2500);
+      }
+
+      function updateCounts() {
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+        document.getElementById('cart-count').innerText = cart.length;
+        document.getElementById('wishlist-count').innerText = wishlist.length;
+      }
+
+      if (product) {
+        let stars = '';
+        for (let i = 1; i <= 5; i++) {
+          stars += i <= product.rating
+            ? '<i class="fas fa-star"></i>'
+            : '<i class="far fa-star"></i>';
+        }
+
+        detailContainer.innerHTML = `
+        <div class="product-detail-wrapper">
+          <div class="product-image">
+            <img src="${product.image}" alt="${product.name}">
+          </div>
+          <div class="product-info">
+            <h2>${product.name}</h2>
+            <p><strong>Price:</strong> <span class="current-price">$${product.price.toFixed(2)}</span></p>
+            <p><strong>Old Price:</strong> <s>$${product.oldPrice.toFixed(2)}</s></p>
+            <p><strong>Rating:</strong> ${stars}</p>
+            <p><strong>Category:</strong> ${product.category}</p>
+            <p><strong>Description:</strong> ${product.description || 'No description available.'}</p>
+            <div class="product-buttons">
+              <button class="btn add-to-cart">Add to Cart</button>
+              <button class="btn add-to-wishlist"><i class="fas fa-heart"></i> Add to Wishlist</button>
+            </div>
+          </div>
+        </div>
+      `;
+
+        const cartBtn = document.querySelector('.add-to-cart');
+        const wishlistBtn = document.querySelector('.add-to-wishlist');
+
+        cartBtn.addEventListener('click', function () {
+          let cart = JSON.parse(localStorage.getItem('cart')) || [];
+          if (!cart.includes(productId)) {
+            cart.push(productId);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            showToast("Product added to cart!");
+            updateCounts();
+          } else {
+            showToast("Product already in cart.");
+          }
+        });
+
+        wishlistBtn.addEventListener('click', function () {
+          let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+          if (!wishlist.includes(productId)) {
+            wishlist.push(productId);
+            localStorage.setItem('wishlist', JSON.stringify(wishlist));
+            showToast("Product added to wishlist!");
+            updateCounts();
+          } else {
+            showToast("Product already in wishlist.");
+          }
+        });
+
+        // Initial count update
+        updateCounts();
+      } else {
+        detailContainer.innerHTML = `<p>Product not found.</p>`;
+      }
+    });
+    
+  </script>
+
+
+</body>
+
+</html>

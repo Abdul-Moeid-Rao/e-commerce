@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coming Soon | Electro</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        /* Additional specific styles for coming soon page */
+        .coming-soon {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 70vh;
+            text-align: center;
+            padding: 40px 20px;
+        }
+        
+        .coming-soon-icon {
+            font-size: 80px;
+            color: #d70000;
+            margin-bottom: 30px;
+        }
+        
+        .coming-soon h1 {
+            font-size: 42px;
+            color: #2c2c3e;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .coming-soon h1::after {
+            content: '';
+            position: absolute;
+            width: 60%;
+            height: 3px;
+            background: linear-gradient(90deg, #ff7b00, #d70000);
+            bottom: -10px;
+            left: 20%;
+            border-radius: 3px;
+        }
+        
+        .coming-soon p {
+            font-size: 18px;
+            color: #555;
+            max-width: 600px;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        
+        .countdown {
+            display: flex;
+            gap: 20px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .countdown-item {
+            background: #1a1a2e;
+            color: white;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+        }
+        
+        .countdown-item span:first-child {
+            font-size: 30px;
+        }
+        
+        .countdown-item span:last-child {
+            font-size: 14px;
+            text-transform: uppercase;
+            margin-top: 5px;
+        }
+        
+        .notify-form {
+            display: flex;
+            max-width: 500px;
+            width: 100%;
+            margin-top: 30px;
+        }
+        
+        .notify-form input {
+            flex: 1;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px 0 0 4px;
+            font-size: 16px;
+            outline: none;
+        }
+        
+        .notify-form button {
+            background-color: #d70000;
+            color: white;
+            border: none;
+            padding: 0 20px;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .notify-form button:hover {
+            background-color: #b00000;
+        }
+        
+        @media (max-width: 768px) {
+            .coming-soon h1 {
+                font-size: 32px;
+            }
+            
+            .coming-soon p {
+                font-size: 16px;
+            }
+            
+            .countdown-item {
+                width: 80px;
+                height: 80px;
+            }
+            
+            .countdown-item span:first-child {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Main Navigation Bar -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <!-- Logo -->
+            <div class="logo">
+                <a href="/">
+                    <span class="logo-text">Electro</span><span class="logo-dot">.</span>
+                </a>
+            </div>
+
+            <div class="user-actions">
+                <a href="wishlist.html" class="action-item wishlist">
+                    <i class="fas fa-heart icon"></i>
+                    <span class="action-text">Wishlist</span>
+                    <span id="wishlist-count" class="count-badge">0</span>
+                </a>
+                <a href="cart.html" class="action-item cart">
+                    <i class="fas fa-shopping-cart icon"></i>
+                    <span class="action-text">Cart</span>
+                    <span id="cart-count" class="count-badge">0</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Bottom Navigation Bar -->
+    <nav class="bottom-nav">
+        <ul class="nav-menu">
+            <li class="nav-item"><a href="index.html">Home</a></li>
+            <li class="nav-item"><a href="products.html">Products</a></li>
+            <li class="nav-item"><a href="comingsoon.html">New Arivals</a></li>
+            <li class="nav-item"><a href="comingsoon.html">Hot Deals</a></li>
+            <li class="nav-item"><a href="comingsoon.html">About</a></li>
+            <li class="nav-item"><a href="comingsoon.html">Help</a></li>
+        </ul>
+    </nav>
+
+    <!-- Coming Soon Content -->
+    <div class="container">
+        <div class="coming-soon">
+            <div class="coming-soon-icon">
+                <i class="fas fa-tools"></i>
+            </div>
+            <h1>Coming Soon</h1>
+            <p>We're working hard to bring you an amazing new experience. This page is under construction and will be available soon. Stay tuned!</p>
+            
+            <div class="countdown">
+                <div class="countdown-item">
+                    <span id="days">00</span>
+                    <span>Days</span>
+                </div>
+                <div class="countdown-item">
+                    <span id="hours">00</span>
+                    <span>Hours</span>
+                </div>
+                <div class="countdown-item">
+                    <span id="minutes">00</span>
+                    <span>Minutes</span>
+                </div>
+                <div class="countdown-item">
+                    <span id="seconds">00</span>
+                    <span>Seconds</span>
+                </div>
+            </div>
+            
+            <p>Want to be notified when we launch? Sign up below!</p>
+            
+            <form class="notify-form">
+                <input type="email" placeholder="Enter your email address" required>
+                <button type="submit">Notify Me</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <!-- Your existing footer content -->
+        <div class="footer-container">
+            <!-- Footer content from your other pages -->
+            <div class="footer-bottom">
+                <div class="copyright">
+                    &copy; 2023 Electro. All Rights Reserved.
+                </div>
+                <div class="footer-links-bottom">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms & Conditions</a>
+                    <a href="#">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Countdown timer
+        function updateCountdown() {
+            const launchDate = new Date();
+            launchDate.setDate(launchDate.getDate() + 30); // Set launch date to 30 days from now
+            
+            const now = new Date().getTime();
+            const distance = launchDate - now;
+            
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            document.getElementById('days').textContent = days.toString().padStart(2, '0');
+            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+        }
+        
+        // Update countdown every second
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+        
+        // Form submission
+        document.querySelector('.notify-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = this.querySelector('input').value;
+            alert(`Thank you! We'll notify you at ${email} when we launch.`);
+            this.querySelector('input').value = '';
+        });
+        
+        // Update cart and wishlist counts
+        document.addEventListener('DOMContentLoaded', function() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+            document.getElementById('cart-count').textContent = cart.length;
+            document.getElementById('wishlist-count').textContent = wishlist.length;
+        });
+    </script>
+</body>
+</html>

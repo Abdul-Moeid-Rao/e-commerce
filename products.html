@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- <link rel="stylesheet" href="assets/css/responsive.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <title>Products - Electro</title>
+</head>
+
+<body>
+
+    <!-- Main Navigation Bar -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <!-- Logo -->
+            <div class="logo">
+                <a href="/">
+                    <span class="logo-text">Electro</span><span class="logo-dot">.</span>
+                </a>
+            </div>
+
+            <!-- Search Section -->
+            <div class="search-section">
+                <div class="search-container">
+                    <select class="category-dropdown">
+                        <option value="">All Categories</option>
+                        <option value="electronics">Electronics</option>
+                        <option value="computers">Computers</option>
+                        <option value="phones">Phones</option>
+                        <option value="accessories">Accessories</option>
+                    </select>
+                    <input type="text" id="search-input" class="search-input" placeholder="Search here">
+                    <button id="search-btn" class="search-btn">Search</button>
+
+                </div>
+            </div>
+
+            <!-- User Actions -->
+            <div class="user-actions">
+                <a href="wishlist.html" class="action-item wishlist">
+                    <i class="fas fa-heart icon"></i>
+                    <span class="action-text">Wishlist</span>
+                    <span id="wishlist-count" class="count-badge">0</span>
+                </a>
+                <a href="cart.html" class="action-item cart">
+                    <i class="fas fa-shopping-cart icon"></i>
+                    <span class="action-text">Cart</span>
+                    <span id="cart-count" class="count-badge">0</span>
+                </a>
+            </div>
+
+        </div>
+    </nav>
+
+    <!-- Bottom Navigation Bar -->
+    <nav class="bottom-nav">
+        <ul class="nav-menu">
+            <li class="nav-item"><a href="index.html">Home</a></li>
+            <li class="nav-item active"><a href="products.html">Products</a></li>
+            <li class="nav-item"><a href="comingsoon.html">New Arivals</a></li>
+            <li class="nav-item"><a href="comingsoon.html">Hot Deals</a></li>
+            <li class="nav-item"><a href="comingsoon.html">About</a></li>
+            <li class="nav-item"><a href="comingsoon.html">Help</a></li>
+        </ul>
+    </nav>
+
+    <!-- Breadcrumb Navigation -->
+    <div class="breadcrumb">
+        <div class="container">
+            <a href="index.html">Home</a>
+            <i class="fas fa-chevron-right"></i>
+            <span>Products</span>
+        </div>
+    </div>
+
+    <!-- Product Listing Section -->
+    <section class="product-listing">
+        <div class="container">
+            <div class="listing-header">
+                <h1>All Products</h1>
+                <div class="view-options">
+                    <span>View:</span>
+                    <button class="view-btn grid-view active"><i class="fas fa-th"></i></button>
+                    <button class="view-btn list-view"><i class="fas fa-list"></i></button>
+                    <div class="sort-options">
+                        <span>Sort by:</span>
+                        <select id="sort-select">
+                            <option value="default">Default</option>
+                            <option value="price-low">Price: Low to High</option>
+                            <option value="price-high">Price: High to Low</option>
+                            <option value="name-asc">Name: A to Z</option>
+                            <option value="name-desc">Name: Z to A</option>
+                            <option value="rating">Rating</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="listing-container">
+                <!-- Filters Sidebar -->
+                <aside class="filters-sidebar">
+                    <div class="filter-section">
+                        <h3 class="filter-title">Categories</h3>
+                        <ul class="filter-list">
+                            <li><a href="#" class="active" data-category="all">All Products</a></li>
+                            <li><a href="#" data-category="laptop">Laptops</a></li>
+                            <li><a href="#" data-category="smartphone">Smartphones</a></li>
+                            <li><a href="#" data-category="camera">Cameras</a></li>
+                            <li><a href="#" data-category="accessory">Accessories</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="filter-section">
+                        <h3 class="filter-title">Price Range</h3>
+                        <div class="price-range">
+                            <input type="range" min="0" max="5000" value="5000" class="price-slider" id="price-slider">
+                            <div class="price-values">
+                                <span>$0</span>
+                                <span>$5000</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="filter-section">
+                        <h3 class="filter-title">Brand</h3>
+                        <div class="brand-filters">
+                            <div class="brand-checkbox">
+                                <input type="checkbox" id="apple" name="brand" value="apple" checked>
+                                <label for="apple">Apple</label>
+                            </div>
+                            <div class="brand-checkbox">
+                                <input type="checkbox" id="samsung" name="brand" value="samsung" checked>
+                                <label for="samsung">Samsung</label>
+                            </div>
+                            <div class="brand-checkbox">
+                                <input type="checkbox" id="hp" name="brand" value="hp" checked>
+                                <label for="hp">HP</label>
+                            </div>
+                            <div class="brand-checkbox">
+                                <input type="checkbox" id="dell" name="brand" value="dell" checked>
+                                <label for="dell">Dell</label>
+                            </div>
+                            <div class="brand-checkbox">
+                                <input type="checkbox" id="sony" name="brand" value="sony" checked>
+                                <label for="sony">Sony</label>
+                            </div>
+                            <div class="brand-checkbox">
+                                <input type="checkbox" id="canon" name="brand" value="canon" checked>
+                                <label for="canon">Canon</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="filter-section">
+                        <h3 class="filter-title">Rating</h3>
+                        <div class="rating-filters">
+                            <div class="rating-checkbox">
+                                <input type="checkbox" id="rating5" name="rating" value="5" checked>
+                                <label for="rating5">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </label>
+                            </div>
+                            <div class="rating-checkbox">
+                                <input type="checkbox" id="rating4" name="rating" value="4" checked>
+                                <label for="rating4">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i> & up
+                                </label>
+                            </div>
+                            <div class="rating-checkbox">
+                                <input type="checkbox" id="rating3" name="rating" value="3" checked>
+                                <label for="rating3">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i> & up
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="filter-btn">Apply Filters</button>
+                    <button class="reset-btn">Reset All</button>
+                </aside>
+
+                <!-- Product Grid -->
+                <div class="product-grid" id="product-grid">
+                    <!-- Products will be loaded here by JavaScript -->
+                </div>
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination">
+                <a href="#" class="page-nav disabled"><i class="fas fa-chevron-left"></i></a>
+                <a href="#" class="page-number active">1</a>
+                <a href="#" class="page-number">2</a>
+                <a href="#" class="page-number">3</a>
+                <a href="#" class="page-number">4</a>
+                <a href="#" class="page-number">5</a>
+                <a href="#" class="page-nav"><i class="fas fa-chevron-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="footer-container">
+            <!-- Top Footer Section -->
+            <div class="footer-top">
+                <div class="footer-column">
+                    <h3 class="footer-title">Electro<span>.</span></h3>
+                    <p class="footer-about">Your one-stop shop for all electronics needs. We provide high-quality
+                        products at competitive prices with excellent customer service.</p>
+                    <div class="footer-social">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-column">
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Products</a></li>
+                        <li><a href="#">New Arrivals</a></li>
+                        <li><a href="#">Hot Deals</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4 class="footer-heading">Customer Service</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">My Account</a></li>
+                        <li><a href="#">Customer Services</a></li>
+                        <li><a href="#">Returns & Exchanges</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">FAQs</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4 class="footer-heading">Contact Info</h4>
+                    <ul class="footer-contact">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>UET, Taxila, Rawalpindi, Pakistan</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone-alt"></i>
+                            <span>+92-337-0422383</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>email@electro.com</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <span>Mon - Fri: 9:00 - 18:00</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4 class="footer-heading">Newsletter</h4>
+                    <p class="footer-newsletter">Subscribe to our newsletter for the latest updates and offers.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your email address" required>
+                        <button type="submit">Subscribe</button>
+                    </form>
+                    <div class="payment-methods">
+                        <img src="https://1000logos.net/wp-content/uploads/2017/06/VISA-Logo-1992.png" alt="Visa">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/MasterCard_Logo.svg/1280px-MasterCard_Logo.svg.png"
+                            alt="Mastercard">
+                        <img src="https://www.paypalobjects.com/webstatic/mktg/logo-center/PP_Acceptance_Marks_for_LogoCenter_266x142.png"
+                            alt="PayPal">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Stripe_Logo%2C_revised_2016.svg/2560px-Stripe_Logo%2C_revised_2016.svg.png"
+                            alt="Stripe">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Footer Section -->
+            <div class="footer-bottom">
+                <div class="copyright">
+                    &copy; 2023 Electro. All Rights Reserved.
+                </div>
+                <div class="footer-links-bottom">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms & Conditions</a>
+                    <a href="#">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="assets/js/main.js"></script> <!-- Must be first -->
+    <script src="assets/js/products.js"></script>
+    <script src="assets/js/script.js"></script>
+
+</body>
+
+</html>

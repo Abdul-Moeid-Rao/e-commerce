@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <title>Home</title>
+</head>
+
+<body>
+    <div class="top-bar">
+        <div class="container">
+            <div class="contact-info">
+                <a href="tel:+021-95-51-84" class="contact-item">
+                    <i class="fas fa-phone icon"></i>
+                    <span>+92-337-0422383</span>
+                </a>
+                <a href="mailto:email@email.com" class="contact-item">
+                    <i class="fas fa-envelope icon"></i>
+                    <span>email@electro.com</span>
+                </a>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt icon"></i>
+                    <span>UET, Taxila, Rawalpindi</span>
+                </div>
+            </div>
+
+            <div class="account-section">
+                <div class="currency">
+                    <i id="currency-icon" class="fas fa-dollar-sign icon"></i>
+                    <select name="currency" id="currency-select">
+                        <option value="USD" selected>USD</option>
+                        <option value="EUR">EUR</option>
+                        <option value="PKR">PKR</option>
+                    </select>
+                </div>
+                <a href="#" class="account-link">
+                    <i class="fas fa-user icon"></i>
+                    <span>My Account</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Navigation Bar -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <!-- Logo -->
+            <div class="logo">
+                <a href="/">
+                    <span class="logo-text">Electro</span><span class="logo-dot">.</span>
+                </a>
+            </div>
+
+            <!-- Search Section -->
+            <div class="search-section">
+                <div class="search-container">
+                    <select class="category-dropdown">
+                        <option value="">All Categories</option>
+                        <option value="electronics">Electronics</option>
+                        <option value="computers">Computers</option>
+                        <option value="phones">Phones</option>
+                        <option value="accessories">Accessories</option>
+                    </select>
+                    <input type="text" id="search-input" class="search-input" placeholder="Search here">
+                    <button id="search-btn" class="search-btn">Search</button>
+                </div>
+            </div>
+
+            <!-- User Actions -->
+            <div class="user-actions">
+                <a href="wishlist.html" class="action-item wishlist">
+                    <i class="fas fa-heart icon"></i>
+                    <span class="action-text">Wishlist</span>
+                    <span id="wishlist-count" class="count-badge">0</span>
+                </a>
+                <a href="cart.html" class="action-item cart">
+                    <i class="fas fa-shopping-cart icon"></i>
+                    <span class="action-text">Cart</span>
+                    <span id="cart-count" class="count-badge">0</span>
+                </a>
+
+            </div>
+
+        </div>
+    </nav>
+
+    <!-- Bottom Navigation Bar -->
+    <nav class="bottom-nav">
+        <ul class="nav-menu">
+            <li class="nav-item active"><a href="index.html">Home</a></li>
+            <li class="nav-item"><a href="products.html">Products</a></li>
+            <li class="nav-item"><a href="comingsoon.html">New Arivals</a></li>
+            <li class="nav-item"><a href="comingsoon.html">Hot Deals</a></li>
+            <li class="nav-item"><a href="comingsoon.html">About</a></li>
+            <li class="nav-item"><a href="comingsoon.html">Help</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-card" data-type="laptops">
+            <img src="assets/images/Laptop.png" alt="Laptop">
+            <div class="hero-overlay">
+                <h2>Laptop<br>Collection</h2>
+                <a href="#">SHOP NOW <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+        <div class="hero-card" data-type="accessories">
+            <img src="assets/images/Accessories.png" alt="Accessories">
+            <div class="hero-overlay">
+                <h2>Accessories<br>Collection</h2>
+                <a href="#">SHOP NOW <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+        <div class="hero-card" data-type="cameras">
+            <img src="assets/images/camera.png" alt="Camera">
+            <div class="hero-overlay">
+                <h2>Cameras<br>Collection</h2>
+                <a href="#">SHOP NOW <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="product-section">
+        <div class="header">
+            <h2>TOP SELLING PRODUCTS</h2>
+            <ul class="tabs">
+                <li class="tab active" data-category="all">All</li>
+                <li class="tab" data-category="laptop">Laptops</li>
+                <li class="tab" data-category="smartphone">Smartphones</li>
+                <li class="tab" data-category="camera">Cameras</li>
+                <li class="tab" data-category="accessory">Accessories</li>
+            </ul>
+        </div>
+
+        <div class="carousel-wrapper">
+            <button class="carousel-btn prev"><i class="fas fa-chevron-left"></i></button>
+            <div class="carousel" id="carousel">
+                <!-- Product cards will be inserted here by JavaScript -->
+            </div>
+            <button class="carousel-btn next"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </section>
+
+    <!-- Deal of Week -->
+    <section class="deal-of-week">
+        <div class="deal-container">
+
+            <div class="deal-center">
+                <div class="deal-countdown">
+                    <div class="circle"><span id="days">02</span><small>DAYS</small></div>
+                    <div class="circle"><span id="hours">10</span><small>HOURS</small></div>
+                    <div class="circle"><span id="minutes">34</span><small>MINS</small></div>
+                    <div class="circle"><span id="seconds">60</span><small>SECS</small></div>
+                </div>
+                <h2>HOT DEAL THIS WEEK</h2>
+                <p class="subtext">NEW COLLECTION UP TO 50% OFF</p>
+                <a href="#" class="deal-btn">SHOP NOW</a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Top-Selling -->
+    <section class="top-selling">
+        <div class="section-title">
+            <h2>Top Selling Products</h2>
+        </div>
+
+        <div class="products-container" id="productsContainer">
+            <!-- Products will be inserted here by JavaScript -->
+        </div>
+    </section>
+
+
+    <section class="brands-section">
+        <div class="section-title">
+            <h2>Featured Brands</h2>
+        </div>
+
+        <div class="brands-row">
+            <div class="brand-card">
+                <img src="https://1000logos.net/wp-content/uploads/2017/02/Apple-Logosu.png" alt="Apple"
+                    class="brand-logo">
+            </div>
+            <div class="brand-card">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Samsung_Logo.svg/2560px-Samsung_Logo.svg.png"
+                    alt="Samsung" class="brand-logo">
+            </div>
+            <div class="brand-card">
+                <img src="https://cdn.freebiesupply.com/images/thumbs/2x/sony-logo.png" alt="Sony" class="brand-logo">
+            </div>
+            <div class="brand-card">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/LG_logo_%282014%29.svg/2560px-LG_logo_%282014%29.svg.png"
+                    alt="LG" class="brand-logo">
+            </div>
+            <div class="brand-card">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Dell_Logo.svg/2048px-Dell_Logo.svg.png"
+                    alt="Dell" class="brand-logo">
+            </div>
+            <div class="brand-card">
+                <img src="https://cdn.freebiesupply.com/images/large/2x/hewlett-packard-logo-png-transparent.png"
+                    alt="HP" class="brand-logo">
+            </div>
+        </div>
+    </section>
+
+   <div id="toast-notification">Message</div>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="footer-container">
+            <!-- Top Footer Section -->
+            <div class="footer-top">
+                <div class="footer-column">
+                    <h3 class="footer-title">Electro<span>.</span></h3>
+                    <p class="footer-about">Your one-stop shop for all electronics needs. We provide high-quality
+                        products at competitive prices with excellent customer service.</p>
+                    <div class="footer-social">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-column">
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Products</a></li>
+                        <li><a href="#">New Arrivals</a></li>
+                        <li><a href="#">Hot Deals</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4 class="footer-heading">Customer Service</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">My Account</a></li>
+                        <li><a href="#">Customer Services</a></li>
+                        <li><a href="#">Returns & Exchanges</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">FAQs</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4 class="footer-heading">Contact Info</h4>
+                    <ul class="footer-contact">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>UET, Taxila, Rawalpindi, Pakistan</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone-alt"></i>
+                            <span>+92-337-0422383</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>email@electro.com</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <span>Mon - Fri: 9:00 - 18:00</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4 class="footer-heading">Newsletter</h4>
+                    <p class="footer-newsletter">Subscribe to our newsletter for the latest updates and offers.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your email address" required>
+                        <button type="submit">Subscribe</button>
+                    </form>
+                    <div class="payment-methods">
+                        <img src="https://1000logos.net/wp-content/uploads/2017/06/VISA-Logo-1992.png" alt="Visa">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/MasterCard_Logo.svg/1280px-MasterCard_Logo.svg.png"
+                            alt="Mastercard">
+                        <img src="https://www.paypalobjects.com/webstatic/mktg/logo-center/PP_Acceptance_Marks_for_LogoCenter_266x142.png"
+                            alt="PayPal">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Stripe_Logo%2C_revised_2016.svg/2560px-Stripe_Logo%2C_revised_2016.svg.png"
+                            alt="Stripe">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Footer Section -->
+            <div class="footer-bottom">
+                <div class="copyright">
+                    &copy; 2023 Electro. All Rights Reserved.
+                </div>
+                <div class="footer-links-bottom">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms & Conditions</a>
+                    <a href="#">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/products.js"></script>
+    <script src="assets/js/script.js"></script>
+</body>
+
+</html>
